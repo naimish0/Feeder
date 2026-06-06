@@ -1,0 +1,13 @@
+CREATE TABLE posts(
+id TEXT NOT NULL PRIMARY KEY,
+title TEXT NOT NULL,
+author TEXT NOT NULL,
+subreddit TEXT NOT NULL,
+score INTEGER NOT NULL,
+createdUtc INTEGER NOT NULL
+);
+
+observePosts:
+SELECT *
+FROM posts
+ORDER BY createdUtc DESC;
