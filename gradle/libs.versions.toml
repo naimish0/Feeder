@@ -16,6 +16,7 @@ kotlin = "2.4.0"
 material3 = "1.11.0-alpha07"
 coroutines = "1.11.0"
 ktor = "3.2.3"
+multiplatformSettings = "1.3.0"
 sqldelight = "2.1.0"
 serialization = "1.9.0"
 koin = "3.5.6"
@@ -48,6 +49,12 @@ coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", ve
 # --- Serialization ---
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
+
+# --- IOS KEYCHAIN ---
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
+multiplatform-settings-make-observable = { module = "com.russhwolf:multiplatform-settings-make-observable", version.ref = "multiplatformSettings"}
+multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
+
 
 # --- Ktor ---
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
