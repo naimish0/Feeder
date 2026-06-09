@@ -6,7 +6,6 @@ import core.security.SessionManager
 abstract class BaseRepository(
     private val sessionManager: SessionManager
 ) {
-
     protected suspend fun <T> execute(
         block: suspend () -> T
     ): Result<T> {
@@ -14,6 +13,7 @@ abstract class BaseRepository(
             Result.success(block())
         } catch (e: UnauthorizedException) {
             sessionManager.onSessionExpired()
+            sessionManager.getToken()
             Result.failure(e)
         } catch (e: Exception) {
             Result.failure(e)
