@@ -1,5 +1,5 @@
 package core.network
 
 object NetworkConstants {
-    const val BASE_URL = "https://lemmy.ml/api/v3/"
+    const val BASE_URL = "https://lemmy.ml/"
 }

@@ -1,9 +1,9 @@
-package feature_feed.data.remote.api
+package feature_auth.data.remote.api
 
 import core.network.Endpoints
 import core.network.NetworkConstants
-import feature_feed.data.remote.dto.LoginRequest
-import feature_feed.data.remote.dto.LoginResponse
+import feature_auth.data.remote.dto.LoginRequest
+import feature_auth.data.remote.dto.LoginResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.post

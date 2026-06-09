@@ -3,11 +3,11 @@ package core.network
 object Endpoints {
 
     object Auth {
-        const val LOGIN = "user/login"
+        const val LOGIN = "api/v3/user/login"
     }
 
     object Post {
-        const val LIST = "post/list"
+        const val LIST = "api/v3/post/list"
         const val CREATE = "post"
     }
 

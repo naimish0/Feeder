@@ -1,8 +1,8 @@
-package feature_feed.data.remote.datasource
+package feature_auth.data.remote.datasource
 
-import feature_feed.data.remote.api.ResponseApi
-import feature_feed.data.remote.dto.LoginRequest
-import feature_feed.data.remote.dto.LoginResponse
+import feature_auth.data.remote.api.ResponseApi
+import feature_auth.data.remote.dto.LoginRequest
+import feature_auth.data.remote.dto.LoginResponse
 
 class LoginResponseDataSource(private val responseApi: ResponseApi) {
 

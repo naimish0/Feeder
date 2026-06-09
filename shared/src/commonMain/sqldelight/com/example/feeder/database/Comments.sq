@@ -1,0 +1,43 @@
+CREATE TABLE comments (
+    id INTEGER NOT NULL PRIMARY KEY,
+
+    post_id INTEGER NOT NULL,
+
+    creator_id INTEGER,
+    creator_name TEXT NOT NULL,
+
+    content TEXT NOT NULL,
+
+    score INTEGER NOT NULL,
+
+    published TEXT NOT NULL,
+
+    parent_comment_id INTEGER
+);
+
+CREATE INDEX comments_post_id_idx
+ON comments(post_id);
+
+
+getCommentsForPost:
+SELECT *
+FROM comments
+WHERE post_id = ?
+ORDER BY published ASC;
+
+deleteCommentsForPost:
+DELETE FROM comments
+WHERE post_id = ?;
+
+insertComment:
+INSERT OR REPLACE INTO comments(
+    id,
+    post_id,
+    creator_id,
+    creator_name,
+    content,
+    score,
+    published,
+    parent_comment_id
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?);

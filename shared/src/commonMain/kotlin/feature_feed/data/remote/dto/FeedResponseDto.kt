@@ -4,6 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class FeedResponseDto(
-    val kind: String,
-    val data: FeedDataDto
+    val posts: List<PostViewDto>
 )

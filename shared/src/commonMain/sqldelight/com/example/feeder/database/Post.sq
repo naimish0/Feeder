@@ -1,13 +1,66 @@
-CREATE TABLE posts(
-id TEXT NOT NULL PRIMARY KEY,
-title TEXT NOT NULL,
-author TEXT NOT NULL,
-subreddit TEXT NOT NULL,
-score INTEGER NOT NULL,
-createdUtc INTEGER NOT NULL
+CREATE TABLE posts (
+    id INTEGER NOT NULL PRIMARY KEY,
+    title TEXT NOT NULL,
+    body TEXT,
+    url TEXT,
+    thumbnail_url TEXT,
+    creator_id INTEGER,
+    creator_name TEXT NOT NULL,
+    community_id INTEGER,
+    community_name TEXT NOT NULL,
+    score INTEGER NOT NULL,
+    comments_count INTEGER NOT NULL,
+    published TEXT NOT NULL,
+    saved INTEGER NOT NULL DEFAULT 0,
+    last_updated INTEGER NOT NULL,
+    last_viewed_at INTEGER,
+    read INTEGER NOT NULL DEFAULT 0
 );
 
-observePosts:
+CREATE INDEX posts_saved_idx
+ON posts(saved);
+
+CREATE INDEX posts_last_viewed_idx
+ON posts(last_viewed_at);
+
+
+getPostById:
 SELECT *
 FROM posts
-ORDER BY createdUtc DESC;
+WHERE id = ?;
+
+insertPost:
+INSERT OR REPLACE INTO posts(
+    id,
+    title,
+    body,
+    url,
+    thumbnail_url,
+    creator_id,
+    creator_name,
+    community_id,
+    community_name,
+    score,
+    comments_count,
+    published,
+    saved,
+    last_updated,
+    last_viewed_at
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateSavedState:
+UPDATE posts
+SET saved = ?
+WHERE id = ?;
+
+updateLastViewed:
+UPDATE posts
+SET last_viewed_at = ?
+WHERE id = ?;
+
+getBookmarkedPosts:
+SELECT *
+FROM posts
+WHERE saved = 1
+ORDER BY last_updated DESC;
