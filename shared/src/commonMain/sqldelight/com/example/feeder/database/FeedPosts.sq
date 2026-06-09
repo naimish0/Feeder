@@ -14,8 +14,7 @@ SELECT p.*
 FROM posts p
 INNER JOIN feed_posts fp
 ON p.id = fp.post_id
-WHERE fp.feed_type = ?
-ORDER BY p.published DESC;
+WHERE fp.feed_type = ?;
 
 deleteFeedMappings:
 DELETE FROM feed_posts
