@@ -1,4 +1,4 @@
-package feature_feed.data.remote.dto
+package feature_auth.data.remote.dto
 
 import kotlinx.serialization.Serializable
 

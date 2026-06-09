@@ -1,6 +1,6 @@
-package feature_feed.domain.model
+package feature_feed.data.local.entity
 
-data class Post(
+data class PostEntity(
     val id: Long,
     val title: String,
     val body: String?,

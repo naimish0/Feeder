@@ -1,0 +1,29 @@
+CREATE TABLE feed_posts (
+    feed_type TEXT NOT NULL,
+    post_id INTEGER NOT NULL,
+
+    PRIMARY KEY(feed_type, post_id)
+);
+
+CREATE INDEX feed_posts_feed_type_idx
+ON feed_posts(feed_type);
+
+
+getPostsForFeed:
+SELECT p.*
+FROM posts p
+INNER JOIN feed_posts fp
+ON p.id = fp.post_id
+WHERE fp.feed_type = ?
+ORDER BY p.published DESC;
+
+deleteFeedMappings:
+DELETE FROM feed_posts
+WHERE feed_type = ?;
+
+insertFeedMapping:
+INSERT OR REPLACE INTO feed_posts(
+    feed_type,
+    post_id
+)
+VALUES (?, ?);

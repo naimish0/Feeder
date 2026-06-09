@@ -1,0 +1,40 @@
+CREATE TABLE communities (
+    id INTEGER NOT NULL PRIMARY KEY,
+
+    name TEXT NOT NULL,
+
+    title TEXT NOT NULL,
+
+    description TEXT,
+
+    subscribers INTEGER NOT NULL,
+
+    icon_url TEXT,
+
+    last_updated INTEGER NOT NULL
+);
+
+getAllCommunities:
+SELECT *
+FROM communities
+ORDER BY subscribers DESC;
+
+getCommunityById:
+SELECT *
+FROM communities
+WHERE id = ?;
+
+insertCommunity:
+INSERT OR REPLACE INTO communities(
+    id,
+    name,
+    title,
+    description,
+    subscribers,
+    icon_url,
+    last_updated
+)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+deleteAllCommunities:
+DELETE FROM communities;

@@ -1,0 +1,16 @@
+CREATE TABLE metadata (
+    key TEXT NOT NULL PRIMARY KEY,
+    value TEXT NOT NULL
+);
+
+getMetadata:
+SELECT value
+FROM metadata
+WHERE key = ?;
+
+insertMetadata:
+INSERT OR REPLACE INTO metadata(
+    key,
+    value
+)
+VALUES (?, ?);
