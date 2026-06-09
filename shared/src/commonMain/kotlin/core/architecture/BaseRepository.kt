@@ -13,7 +13,6 @@ abstract class BaseRepository(
             Result.success(block())
         } catch (e: UnauthorizedException) {
             sessionManager.onSessionExpired()
-            sessionManager.getToken()
             Result.failure(e)
         } catch (e: Exception) {
             Result.failure(e)

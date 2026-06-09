@@ -3,12 +3,13 @@ package feature_feed.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import core.model.FeedType
-import feature_feed.domain.model.Post
 import feature_feed.domain.usecase.ObserveFeedUseCase
 import feature_feed.domain.usecase.RefreshFeedUseCase
+import feature_feed.presentation.state.FeedState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class FeedViewModel(
@@ -16,17 +17,14 @@ class FeedViewModel(
     private val refreshHotFeedUseCase: RefreshFeedUseCase,
 ) : ViewModel() {
 
-    private val _posts = MutableStateFlow<List<Post>>(emptyList())
-    val posts: StateFlow<List<Post>> = _posts.asStateFlow()
-
-    private val _isRefreshing = MutableStateFlow(false)
-    val isRefreshing: StateFlow<Boolean> = _isRefreshing.asStateFlow()
+    private val _state = MutableStateFlow(FeedState())
+    val state: StateFlow<FeedState> = _state.asStateFlow()
 
     init {
         // Coroutine 1: continuously observe DB (never ends — must be separate)
         viewModelScope.launch {
             observeHotFeedUseCase.invoke(FeedType.HOT).collect { posts ->
-                _posts.value = posts
+                _state.update { it.copy(posts = posts) }
             }
         }
 
@@ -36,9 +34,9 @@ class FeedViewModel(
 
     fun refresh() {
         viewModelScope.launch {
-            _isRefreshing.value = true
+            _state.update { it.copy(isRefreshing = true) }
             refreshHotFeedUseCase.invoke(FeedType.HOT)
-            _isRefreshing.value = false
+            _state.update { it.copy(isRefreshing = false) }
         }
     }
 }
