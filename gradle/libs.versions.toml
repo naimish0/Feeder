@@ -19,7 +19,8 @@ ktor = "3.2.3"
 multiplatformSettings = "1.3.0"
 sqldelight = "2.1.0"
 serialization = "1.9.0"
-koin = "3.5.6"
+navigationCompose = "2.9.2"
+koin = "4.2.1"
 datetime = "0.7.1"
 [libraries]
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
@@ -53,7 +54,7 @@ serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-jso
 
 # --- IOS KEYCHAIN ---
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
-multiplatform-settings-make-observable = { module = "com.russhwolf:multiplatform-settings-make-observable", version.ref = "multiplatformSettings"}
+multiplatform-settings-make-observable = { module = "com.russhwolf:multiplatform-settings-make-observable", version.ref = "multiplatformSettings" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatformSettings" }
 
 
@@ -74,9 +75,11 @@ sqldelight-native-driver = { module = "app.cash.sqldelight:native-driver", versi
 # --- Koin (IMPORTANT CLEAN SETUP) ---
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
 koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koin" }
-
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-compose-viewmodel  = { module = "io.insert-koin:koin-compose-viewmodel",  version.ref = "koin" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 # --- DateTime ---
 datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 

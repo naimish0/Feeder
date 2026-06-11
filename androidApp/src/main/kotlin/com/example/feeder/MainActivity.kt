@@ -9,13 +9,11 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val feedViewModel by viewModel<FeedViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            App(feedViewModel = feedViewModel)
+            App()
         }
     }
 }
