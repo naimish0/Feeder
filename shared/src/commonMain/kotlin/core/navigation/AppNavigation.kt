@@ -2,11 +2,9 @@ package core.navigation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
@@ -30,8 +28,9 @@ fun AppNavigation(
 ) {
     val sessionManager: SessionManager = koinInject()
     val sessionState by sessionManager.sessionState.collectAsStateWithLifecycle()
-
-    LaunchedEffect(Unit) { sessionManager.initialize() }
+    LaunchedEffect(Unit) {
+        sessionManager.initialize()
+    }
 
     LaunchedEffect(sessionState) {
         when (sessionState) {
@@ -49,22 +48,28 @@ fun AppNavigation(
     NavHost(navController = navController, startDestination = AppRoute.Loading) {
 
         composable<AppRoute.Loading> {
-            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                CircularProgressIndicator()
-            }
+            Box(Modifier.fillMaxSize())
         }
 
         composable<AppRoute.Feed> {
             val feedViewModel: FeedViewModel = koinViewModel()
             val state by feedViewModel.state.collectAsStateWithLifecycle()
+
             LaunchedEffect(Unit) {
                 feedViewModel.navigation.collect { destination ->
                     when (destination) {
-                        is FeedNavigation.ToPostDetail -> navController.navigate(AppRoute.PostDetail(destination.postId))
+                        is FeedNavigation.ToPostDetail -> navController.navigate(
+                            AppRoute.PostDetail(
+                                destination.postId
+                            )
+                        )
                     }
                 }
             }
-            FeedScreen(state = state, onIntent = feedViewModel::dispatch)
+
+            FeedScreen(
+                state = state, onIntent = feedViewModel::dispatch
+            )
         }
 
         composable<AppRoute.PostDetail> { backStackEntry ->
