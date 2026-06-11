@@ -1,6 +1,5 @@
 package feature_feed.di
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.feeder.database.FeederDatabase
 import feature_feed.data.local.datasource.FeedLocalDataSource
 import feature_feed.data.remote.api.FeedApi
@@ -10,6 +9,8 @@ import feature_feed.data.repository.FeedRepositoryImpl
 import feature_feed.domain.repository.FeedRepository
 import feature_feed.domain.usecase.ObserveFeedUseCase
 import feature_feed.domain.usecase.RefreshFeedUseCase
+import feature_feed.presentation.viewmodel.FeedViewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val feedModule = module {
@@ -41,4 +42,5 @@ val feedModule = module {
     single {
         RefreshFeedUseCase(get())
     }
+    viewModel { FeedViewModel(get(), get()) }
 }

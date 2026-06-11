@@ -56,7 +56,7 @@ kotlin {
 
             // KOIN (Android ONLY)
             implementation(libs.koin.android)
-            implementation(libs.koin.compose)
+            implementation(libs.koin.androidx.compose)
             implementation(libs.androidx.datastore.preferences)
         }
 
@@ -81,6 +81,9 @@ kotlin {
             implementation(libs.sqldelight.coroutines)
             implementation(libs.koin.core)
             implementation(libs.datetime)
+            implementation(libs.navigation.compose)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
