@@ -1,0 +1,3 @@
+package feature_auth.presentation.navigation
+
+sealed interface LoginNavigation

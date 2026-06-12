@@ -15,6 +15,7 @@ import androidx.navigation.toRoute
 import core.security.SessionManager
 import core.security.SessionState
 import feature_auth.presentation.screen.LoginScreen
+import feature_auth.presentation.viewmodel.LoginViewModel
 import feature_feed.presentation.navigation.FeedNavigation
 import feature_feed.presentation.screen.FeedScreen
 import feature_feed.presentation.viewmodel.FeedViewModel
@@ -78,7 +79,9 @@ fun AppNavigation(
         }
 
         composable<AppRoute.Login> {
-            LoginScreen()
+            val loginViewModel: LoginViewModel = koinViewModel()
+            val state by loginViewModel.state.collectAsStateWithLifecycle()
+            LoginScreen(state = state, onIntent = loginViewModel::dispatch)
         }
     }
 }
