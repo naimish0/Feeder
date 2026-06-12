@@ -1,0 +1,5 @@
+package feature_auth.domain.repository
+
+interface AuthRepository {
+        suspend fun login(username: String, password: String): Result<Unit>
+}

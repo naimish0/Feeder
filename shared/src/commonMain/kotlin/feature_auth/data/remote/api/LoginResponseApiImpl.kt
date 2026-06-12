@@ -13,9 +13,11 @@ import io.ktor.http.contentType
 
 class LoginResponseApiImpl(val client: HttpClient) : ResponseApi {
     override suspend fun getLoginResponse(request: LoginRequest): Result<LoginResponse> {
-        return client.post(NetworkConstants.BASE_URL + Endpoints.Auth.LOGIN) {
-            contentType(ContentType.Application.Json)
-            setBody(request)
-        }.body()
+        return runCatching {
+            client.post(NetworkConstants.BASE_URL + Endpoints.Auth.LOGIN) {
+                contentType(ContentType.Application.Json)
+                setBody(request)
+            }.body<LoginResponse>()
+        }
     }
 }
