@@ -4,11 +4,8 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class PostDetailResponseDto(
-    @SerialName("post_view") val postView: PostDetailViewDto
+data class PostDetailCountsDto(
+    @SerialName("post_id") val postId: Long,
+    val comments: Long,
+    val score: Long
 )
-
-
-
-
-

@@ -9,6 +9,7 @@ androidx-core = "1.19.0"
 androidx-espresso = "3.7.0"
 androidx-lifecycle = "2.11.0-beta01"
 androidx-testExt = "1.3.0"
+coilNetworkKtor3 = "3.5.0"
 composeMultiplatform = "1.11.1"
 coreSplashscreen = "1.2.0"
 datastorePreferences = "1.2.1"
@@ -17,6 +18,7 @@ kotlin = "2.4.0"
 material3 = "1.11.0-alpha07"
 coroutines = "1.11.0"
 ktor = "3.5.0"
+materialIconsExtended = "1.7.3"
 multiplatformSettings = "1.3.0"
 sqldelight = "2.3.2"
 serialization = "1.11.0"
@@ -26,6 +28,9 @@ datetime = "0.8.0"
 [libraries]
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilNetworkKtor3" }
+coil-network-ktor3 = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coilNetworkKtor3" }
+components-resources = { module = "org.jetbrains.compose.components:components-resources" }
 koin-androidx-viewmodel-navigation = { module = "io.insert-koin:koin-androidx-viewmodel-navigation", version.ref = "koin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
@@ -52,6 +57,7 @@ coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", ve
 
 # --- Serialization ---
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
+material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 
 # --- IOS KEYCHAIN ---
