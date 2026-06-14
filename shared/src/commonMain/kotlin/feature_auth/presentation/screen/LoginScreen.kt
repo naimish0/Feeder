@@ -77,7 +77,6 @@ fun LoginScreen(
             Spacer(Modifier.height(48.dp))
 
 
-
             // ── Username ──────────────────────────────────────────────
             OutlinedTextField(
                 value = state.username,
@@ -135,7 +134,8 @@ fun LoginScreen(
                     )
                 } else {
                     Text(
-                        text = "Sign In", style = MaterialTheme.typography.labelLarge
+                        text = if (state.isLoading) "Signing in…" else "Sign In",
+                        style = MaterialTheme.typography.labelLarge
                     )
                 }
             }

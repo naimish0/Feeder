@@ -1,5 +1,7 @@
 package feature_feed.presentation.component   // ← component, not screen
 
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -22,6 +24,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
 import core.util.formatCount
 import core.util.toTimeAgo
 import feature_feed.domain.model.Post
@@ -65,10 +68,10 @@ fun PostCard(
                         contentAlignment = Alignment.Center
                     ) {
                         // IMG placeholder — replace with Coil3/Kamel when image loading is added
-                        Text(
-                            text = "IMG",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                        AsyncImage(
+                            model = post.thumbnailUrl,
+                            contentDescription = "Thumbnail for ${post.title}",
+                            modifier = Modifier.fillMaxWidth().height(72.dp)
                         )
                     }
                 }
