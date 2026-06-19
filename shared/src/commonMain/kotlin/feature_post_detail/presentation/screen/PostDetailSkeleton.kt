@@ -63,7 +63,7 @@ fun PostDetailSkeleton(
 
         Spacer(Modifier.height(20.dp))
 
-        // Score · Comments · Time row
+        // Score · Comment · Time row
         Row {
             Box(
                 modifier = Modifier.width(48.dp).height(10.dp).clip(RoundedCornerShape(4.dp))

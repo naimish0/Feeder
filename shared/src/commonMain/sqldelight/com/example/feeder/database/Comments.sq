@@ -12,7 +12,8 @@ CREATE TABLE comments (
 
     published TEXT NOT NULL,
 
-    parent_comment_id INTEGER
+    parent_comment_id INTEGER,
+    path TEXT NOT NULL
 );
 
 CREATE INDEX comments_post_id_idx
@@ -38,6 +39,7 @@ INSERT OR REPLACE INTO comments(
     content,
     score,
     published,
-    parent_comment_id
+    parent_comment_id,
+    path
 )
-VALUES (?, ?, ?, ?, ?, ?, ?, ?);
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);

@@ -29,7 +29,7 @@ class FeedLocalDataSource(
     ) {
         database.transaction {
             posts.forEach { post ->
-                print("Naimish: replaceFeed, Post: $post")
+                print("Naimish: replaceFeed, CommentPost: $post")
                 postQueries.insertPost(
                     id = post.id,
                     title = post.title,
