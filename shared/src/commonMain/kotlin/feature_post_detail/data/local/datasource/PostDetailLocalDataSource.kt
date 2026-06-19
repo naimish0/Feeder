@@ -11,7 +11,7 @@ class PostDetailLocalDataSource(
     private val postQueries: PostQueries
 ) {
 
-    // getPostById already defined in Post.sq — emits null if not cached yet
+    // getPostById already defined in CommentPost.sq — emits null if not cached yet
     fun observePost(postId: Long): Flow<Posts?> =
         postQueries.getPostById(postId).asFlow().mapToOneOrNull(Dispatchers.Default)
 

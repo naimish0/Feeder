@@ -84,7 +84,7 @@ fun PostDetailScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Post not found",
+                        text = "CommentPost not found",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -158,13 +158,13 @@ private fun PostDetailContent(post: PostDetail) {
                 Spacer(Modifier.height(8.dp))
                 AsyncImage(
                     model = post.thumbnailUrl ?: post.url,
-                    contentDescription = "Post thumbnail",
+                    contentDescription = "CommentPost thumbnail",
                     modifier = Modifier.fillMaxWidth().heightIn(max = 200.dp)
                 )
 
                 Spacer(Modifier.height(16.dp))
 
-                // ── Score · Comments ──────────────────────────────────
+                // ── Score · Comment ──────────────────────────────────
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(16.dp),
                     verticalAlignment = Alignment.CenterVertically
@@ -175,7 +175,7 @@ private fun PostDetailContent(post: PostDetail) {
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Text(
-                        text = "💬 ${post.commentsCount.formatCount()} Comments",
+                        text = "💬 ${post.commentsCount.formatCount()} Comment",
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -197,24 +197,24 @@ private fun PostDetailContent(post: PostDetail) {
             )
         }
 
-        // ── Comments section header ────────────────────────────────────
+        // ── Comment section header ────────────────────────────────────
         item {
             Text(
-                text = "Comments",
+                text = "Comment",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
             )
         }
 
-        // ── Comments placeholder ───────────────────────────────────────
+        // ── Comment placeholder ───────────────────────────────────────
         item {
             Box(
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 32.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "Comments coming soon",
+                    text = "Comment coming soon",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

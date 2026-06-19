@@ -90,7 +90,7 @@ fun PostCard(
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // Row 3 — Score · Comments · Time · Saved
+            // Row 3 — Score · Comment · Time · Saved
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically

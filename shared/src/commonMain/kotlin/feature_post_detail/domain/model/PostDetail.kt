@@ -1,6 +1,6 @@
 package feature_post_detail.domain.model
 
-// Separate from feature_feed.domain.model.Post by design —
+// Separate from feature_feed.domain.model.CommentPost by design —
 // PostDetail can diverge (more fields, different structure) as the feature grows
 data class PostDetail(
     val id: Long,
